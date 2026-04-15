@@ -1,4 +1,5 @@
-
+let humanScore = 0
+let computerScore = 0
 
 function getComputerChoice(){
 
@@ -18,5 +19,20 @@ function getComputerChoice(){
 
 }
 
+
+
+function getHumanChoice(){
+    let humanInput = parseInt(prompt("1.Rock, 2.Paper, 3.Scissors. Please enter your choice"));
+
+    if (humanInput == 1){
+        return "Rock"
+    }
+    else if(humanInput == 2){
+        return "Paper"
+    }
+    else{
+        return "Scissors"
+    }
+}
 
 
