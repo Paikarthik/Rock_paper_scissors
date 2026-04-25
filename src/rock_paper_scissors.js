@@ -4,7 +4,7 @@ let numberOfRounds = 0
 
 
 function isGameFinished(roundNumber){
-    return roundNumber > 4
+    return roundNumber >= 5
 
 }
 
@@ -71,7 +71,7 @@ function rockHandler(event){
     if(!isGameFinished(++numberOfRounds))
     {
         updateRoundNumber(numberOfRounds)
-        winner = playRound(
+        let winner = playRound(
             getComputerChoice(),
             "Rock"
         )
