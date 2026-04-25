@@ -76,3 +76,25 @@ function playRound(computerChoice, humanChoice) {
 // }
 
 // playGame();
+
+function rockHandler(event){
+    
+
+}
+
+function scissorsHandler(event){
+
+}
+
+function paperHandler(event){
+
+}
+
+let paperButton = document.querySelector("#paper")
+let rockButton = document.querySelector("#rock")
+let scissorsButton = document.querySelector("#sccisors")
+
+paperButton.addEventListener("click", paperHandler(event))
+rockButton.addEventListener("click",  rockHandler(event))
+scissorsButton.addEventListener("click", scissorsButton(event))
+
