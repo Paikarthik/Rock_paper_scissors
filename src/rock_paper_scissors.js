@@ -1,5 +1,13 @@
 let humanScore = 0;
 let computerScore = 0;
+let numberOfRounds = 0
+
+
+function isGameFinished(roundNumber){
+    return roundNumber > 4
+
+}
+
 
 function getWinner() {
     if (computerScore > humanScore) {
@@ -19,80 +27,109 @@ function getComputerChoice() {
     else return "Scissors";
 }
 
-function getHumanChoice() {
-    let humanInput = parseInt(prompt("1.Rock, 2.Paper, 3.Scissors"));
 
-    if (humanInput === 1) return "Rock";
-    else if (humanInput === 2) return "Paper";
-    else return "Scissors";
-}
 
 function playRound(computerChoice, humanChoice) {
 
     if (computerChoice === "Rock") {
         if (humanChoice === "Paper") {
             humanScore++;
-            console.log("Paper beats Rock, you win");
+            return "Human"
         } else if (humanChoice === "Scissors") {
             computerScore++;
-            console.log("Rock beats Scissors, you lose");
+            return "Computer"
         } else {
-            console.log("Tie");
+            return "Tie";
         }
     } 
     else if (computerChoice === "Paper") {
         if (humanChoice === "Rock") {
             computerScore++;
-            console.log("Paper beats Rock, you lose");
+            return "Computer";
         } else if (humanChoice === "Scissors") {
             humanScore++;
-            console.log("Scissors beats Paper, you win");
+            return "Human";
         } else {
-            console.log("Tie");
+            return "Tie";
         }
     } 
     else {
         if (humanChoice === "Rock") {
             humanScore++;
-            console.log("Rock beats Scissors, you win");
+            return "Human";
         } else if (humanChoice === "Paper") {
             computerScore++;
-            console.log("Scissors beats Paper, you lose");
+            return "Computer";
         } else {
-            console.log("Tie");
+            return "Tie";
         }
     }
 }
 
-// function playGame() {
-//     for (let i = 0; i < 5; i++) {
-//         let computerChoice = getComputerChoice();
-//         let humanChoice = getHumanChoice();
-
-//         playRound(computerChoice, humanChoice);
-//     }
-
-//     console.log(getWinner());
-// }
-
-// playGame();
 
 function rockHandler(event){
-    let botChoice = getComputerChoice();
-    playRound(botChoice, "Rock")
-    
+    if(!isGameFinished(++numberOfRounds))
+    {
+        updateRoundNumber(numberOfRounds)
+        winner = playRound(
+            getComputerChoice(),
+            "Rock"
+        )
+        updateRoundWinner(winner)
+
+
+    }
+    else{
+        alert(
+            getWinner()
+        )
+    }
+   
 
 }
 
 function scissorsHandler(event){
-    let botChoice = getComputerChoice();
-    playRound(botChoice, "Scissors")
+    
+    if(!isGameFinished(++numberOfRounds))
+    {
+        updateRoundNumber(numberOfRounds)
+        winner = playRound(
+            getComputerChoice(),
+            "Scissors"
+        )
+        updateRoundWinner(winner)
+
+
+    }
+    else{
+        alert(
+        getWinner()
+    )
+
+    }
+    
 
 }
 
 function paperHandler(event){
-    let botChoice = getComputerChoice();
-    playRound(botChoice, "Paper")
+    if(!isGameFinished(++numberOfRounds))
+    {
+        updateRoundNumber(numberOfRounds)
+        winner = playRound(
+            getComputerChoice(),
+            "Paper"
+        )
+        updateRoundWinner(winner)
+
+
+    }
+    else{
+        alert(
+        getWinner()
+    )
+
+    }
+    
 
 }
 
@@ -103,4 +140,18 @@ let scissorsButton = document.querySelector("#scissors")
 paperButton.addEventListener("click", paperHandler)
 rockButton.addEventListener("click",  rockHandler)
 scissorsButton.addEventListener("click", scissorsHandler)
+
+function updateRoundNumber(roundNumber){
+    let roundParaElement = document.querySelector("#round")
+    roundParaElement.textContent = "Round" + " " + roundNumber
+
+}
+
+
+function updateRoundWinner(winner){
+    winnerParagraph = document.querySelector("#wonby");
+    winnerParagraph.textContent = "Won by" + " " + winner
+
+}
+
 
