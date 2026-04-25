@@ -78,23 +78,29 @@ function playRound(computerChoice, humanChoice) {
 // playGame();
 
 function rockHandler(event){
+    let botChoice = getComputerChoice();
+    playRound(botChoice, "Rock")
     
 
 }
 
 function scissorsHandler(event){
+    let botChoice = getComputerChoice();
+    playRound(botChoice, "Scissors")
 
 }
 
 function paperHandler(event){
+    let botChoice = getComputerChoice();
+    playRound(botChoice, "Paper")
 
 }
 
 let paperButton = document.querySelector("#paper")
 let rockButton = document.querySelector("#rock")
-let scissorsButton = document.querySelector("#sccisors")
+let scissorsButton = document.querySelector("#scissors")
 
-paperButton.addEventListener("click", paperHandler(event))
-rockButton.addEventListener("click",  rockHandler(event))
-scissorsButton.addEventListener("click", scissorsButton(event))
+paperButton.addEventListener("click", paperHandler)
+rockButton.addEventListener("click",  rockHandler)
+scissorsButton.addEventListener("click", scissorsHandler)
 
