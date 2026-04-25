@@ -64,15 +64,15 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
+// function playGame() {
+//     for (let i = 0; i < 5; i++) {
+//         let computerChoice = getComputerChoice();
+//         let humanChoice = getHumanChoice();
 
-        playRound(computerChoice, humanChoice);
-    }
+//         playRound(computerChoice, humanChoice);
+//     }
 
-    console.log(getWinner());
-}
+//     console.log(getWinner());
+// }
 
-playGame();
+// playGame();
